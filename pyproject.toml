@@ -1,0 +1,28 @@
+[project]
+name = "rag-faq-bot"
+version = "0.1.0"
+description = "Telegram FAQ/support bot that answers customer questions from your knowledge base with RAG (retrieval + LLM), grounded and with sources. Reuses the pgvector-rag library."
+requires-python = ">=3.12"
+dependencies = [
+    "aiogram>=3.13",
+    "openai>=1.0",
+    "asyncpg>=0.29",
+    "pydantic-settings>=2.0",
+    "pgvector-rag[openai] @ git+https://github.com/xvin84/pgvector-rag.git",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.5",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+asyncio_mode = "auto"
+testpaths = ["tests"]

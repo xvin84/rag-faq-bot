@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: rag_faq_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: faq
+      POSTGRES_PASSWORD: faq
+      POSTGRES_DB: faq
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:
