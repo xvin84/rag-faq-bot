@@ -2,7 +2,7 @@
 operations the bot needs — answer a question and ingest a document."""
 from __future__ import annotations
 
-from pgvector_rag import PgVectorStore, RagIndex, chunk_markdown
+from pgvector_rag import DocumentInfo, PgVectorStore, RagIndex, chunk_markdown
 
 from core.config import get_settings
 from db.session import async_session
@@ -27,3 +27,13 @@ async def ingest(name: str, text: str) -> int:
         rag = RagIndex(PgVectorStore(session), get_embedder())
         await rag.index_markdown(name, text)
     return len(chunk_markdown(text))
+
+
+async def list_documents() -> list[DocumentInfo]:
+    async with async_session() as session:
+        return await PgVectorStore(session).list_documents()
+
+
+async def delete_document(document_id: str) -> None:
+    async with async_session() as session:
+        await PgVectorStore(session).delete_document(document_id)

@@ -22,6 +22,8 @@ my own open-source RAG toolkit — over PostgreSQL + pgvector.
 **For the owner (admin)**
 - Send a `.txt` / `.md` file → the bot chunks, embeds and indexes it. The filename
   becomes the source label. Swap or extend the knowledge base anytime.
+- `/docs` → see every indexed document (chunk count, date added) and delete an
+  outdated one with a single tap.
 
 ## Stack
 

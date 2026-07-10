@@ -32,6 +32,7 @@ async def main() -> None:
     await bot.set_my_commands([
         BotCommand(command="start", description="О боте"),
         BotCommand(command="admin", description="Управление базой знаний (админ)"),
+        BotCommand(command="docs", description="Документы в базе: список и удаление (админ)"),
     ])
     await bot.delete_webhook(drop_pending_updates=True)
     logger.info("RAG FAQ bot started.")
