@@ -7,6 +7,9 @@ services:
       POSTGRES_USER: faq
       POSTGRES_PASSWORD: faq
       POSTGRES_DB: faq
+    # Published so the bot can also run on the host (README's "Run locally" flow).
+    ports:
+      - "5432:5432"
     volumes:
       - pg_data:/var/lib/postgresql/data
     healthcheck:
