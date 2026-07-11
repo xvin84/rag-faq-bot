@@ -25,6 +25,25 @@ my own open-source RAG toolkit — over PostgreSQL + pgvector.
 - `/docs` → see every indexed document (chunk count, date added) and delete an
   outdated one with a single tap.
 
+## What it looks like
+
+Ask in plain language — the answer comes from the knowledge base, with the source
+named. Off-base questions get an honest "I don't have that" instead of a
+hallucination:
+
+![Grounded answer with the source](docs/screenshots/answer-with-source.jpg)
+
+![No hallucinations on off-base questions](docs/screenshots/no-hallucination.jpg)
+
+The owner manages the base right in the chat — an inline admin panel, base stats
+and one-message document ingestion:
+
+| Admin panel | Uploading a document |
+| --- | --- |
+| ![Admin panel](docs/screenshots/admin-panel.jpg) | ![Document indexed](docs/screenshots/ingest.jpg) |
+
+![Knowledge-base stats](docs/screenshots/stats.jpg)
+
 ## Stack
 
 Python 3.12 · aiogram 3 · [pgvector-rag](https://github.com/xvin84/pgvector-rag) ·
